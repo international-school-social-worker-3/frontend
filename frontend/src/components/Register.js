@@ -36,27 +36,31 @@ const Register = props => {
   };
 
   return (
-      <div>
-        <div>
+      <div className="register-container">
+        <div className="form">
             <form onSubmit={handleRegister}>
+                <label for="username">Username:</label>
                 <input
                     type="text"
                     name="username"
                     value={regInfo.credentials.username}
                     onChange={handleChange}
                 />
+                <label for="firstName">First Name:</label>
                 <input
                     type="text"
                     name="firstName"
                     value={regInfo.credentials.firstName}
                     onChange={handleChange}
                 />
+                <label for="lastName">Last Name:</label>
                 <input
                     type="text"
                     name="lastName"
                     value={regInfo.credentials.lastName}
                     onChange={handleChange}
                 />
+                <label for="password">Password:</label>
                 <input
                     type="password"
                     name="password"

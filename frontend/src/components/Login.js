@@ -36,15 +36,17 @@ const Login = props => {
   };
 
   return (
-      <div>
-        <div>
+      <div className="login-container">
+        <div className="form">
             <form onSubmit={handleLogin}>
+                <label for="username">Username:</label>
                 <input
                     type="text"
                     name="username"
                     value={loginInfo.credentials.username}
                     onChange={handleChange}
                 />
+                <label for="password">Password:</label>
                 <input
                     type="password"
                     name="password"
@@ -54,7 +56,7 @@ const Login = props => {
                 <button>Log in</button>
             </form>
         </div>
-        <div>
+        <div className="register-link">
             <Link to='/register'> Register </Link>
         </div>
       </div>
