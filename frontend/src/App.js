@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import axios from "axios";
 import Login from './Components/Login';
+import SingleChild from "./Components/SingleChild";
+import ChildCard from './Components/ChildCard';
 
 function App() {
   const [data, setData] = useState([]);
@@ -23,6 +25,8 @@ function App() {
   return (
     <div className="App">
      <Login />
+     <SingleChild />
+     <ChildCard />
     </div>
   );
 }

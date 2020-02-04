@@ -1,6 +1,6 @@
 import React from "react";
 
-function SingleChild () {
+const SingleChild = props => {
     return(
         <div className="single-child">
             <section className="picture"><img src ="img/Thunder.jpeg" id="picture-frame" width="500px" height="500px"></img>
