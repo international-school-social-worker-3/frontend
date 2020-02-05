@@ -6,7 +6,6 @@ const Login = props => {
 
     const changeHandler = event => {
         setInput({...inputValue, [event.target.name]: event.target.value});
-        console.log(inputValue);
     };
 
     return(
