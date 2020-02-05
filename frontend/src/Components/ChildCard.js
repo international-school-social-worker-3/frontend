@@ -1,6 +1,6 @@
 import React from "react";
 import ProfileImage from "./ProfileImage";
-import ChildBio from "./ChildBio";
+import ChildBio from './ChildBio';
 
 const ChildCard = props => {
     return(
@@ -8,11 +8,17 @@ const ChildCard = props => {
             <div className="child-name">
                 <h1>Child Name</h1>
             </div>
-            <ProfileImage />
-            <ChildBio />
-            <div className="start-date">
-                <h2>Start Date</h2>
-                <h2>Visitor</h2>
+            <div className="middle-content">
+                <ProfileImage className="profile-image"
+                    // image={item.image}
+                    />
+                <ChildBio className="child-bio" />
+            </div>
+            <div className="bottom-content">
+                <div className="start-date">
+                    <h2>Start Date</h2>
+                    <h2>Visitor</h2>
+                </div>
             </div>
         </>
     );

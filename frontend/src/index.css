@@ -43,3 +43,23 @@ h2 {
 p {
   font-size: 1rem;
 }
+
+.middle-content {
+  display: flex;
+  border: 2px solid blue;
+}
+
+.child-bio {
+  border: 2px solid gold;
+}
+
+
+
+.bottom-content {
+  display: flex;
+  border: 2px solid red;
+}
+
+.start-date {
+  display: flex;
+}
