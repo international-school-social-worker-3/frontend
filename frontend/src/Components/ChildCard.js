@@ -2,32 +2,31 @@ import React from "react";
 import ProfileImage from "./ProfileImage";
 import ChildBio from './ChildBio';
 
-
-// const kdjlskj = [
-//     key: IDBCursorWithValue;
-// ]
 const ChildCard = props => {
-    return(
+    return (
         <section className="child-card">
             <div className="child-name">
-                <h1>Child Name</h1>
+                <h1>{props.card.name}</h1>
             </div>
             <div className="middle-content-card">
                 <div className="profile-image">
-                    <ProfileImage
-                        // image={item.image}
-                    />
+                    {/* <ProfileImage
+                    {props.card.image}
+                    /> */}
+                    <img src={props.card.image} />
                 </div>
                 <div className="child-bio">
-                <ChildBio />
+                    {/* <ChildBio 
+                        card={props.card.bio}/> */}
+                    <p>{props.card.bio}</p>
                 </div>
             </div>
             <div className="bottom-content-card">
                 <div className="start-date">
-                    <h2>Start Date</h2>
+                    <h2>{props.card.date}</h2>
                 </div>
                 <div className="status">
-                    <h2>Visitor</h2>
+                    <h2>{props.card.status}</h2>
                 </div>
             </div>
         </section>

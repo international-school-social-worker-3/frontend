@@ -8,6 +8,25 @@ import ChildCard from './Components/ChildCard';
 
 function App() {
   const [data, setData] = useState([]);
+  const mapArray = [{
+    name: "Daniel",
+    image: "image.jpeg",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    date: "12/2020",
+    status: "Visitor"
+}, {
+    name: "Daniel",
+    image: "image.jpeg",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    date: "12/2020",
+    status: "Visitor"
+}, {
+    name: "Daniel",
+    image: "image.jpeg",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    date: "12/2020",
+    status: "Visitor"
+}]
   console.log(data);
   useEffect(() => {
     axios
@@ -26,7 +45,12 @@ function App() {
     <div className="App">
      <Login />
      <SingleChild />
-     <ChildCard />
+     {mapArray.map(e => (
+       <div>
+       <ChildCard 
+        card={e}/>
+        </div>
+     ))}
     </div>
   );
 }
