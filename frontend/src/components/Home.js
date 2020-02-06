@@ -1,15 +1,31 @@
 import React, {useState, useEffect} from 'react';
+import { useHistory } from 'react-router-dom';
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 import ChildForm from './ChildForm';
 
-
-        
-
-const Home = props => {
+function Home()  {
+    let history = useHistory();
 
     const [students, setStudents] = useState(
       [
         {
+        id: Date.now(),
+        first_name: "string",
+        last_name: "string",
+        grade: "First",
+        address: "string",
+        background: "string",
+        status: "string",
+        age: "string",
+        insurance: true,
+        expiration_date: "string",
+        birth_certificate: true ,
+        special_needs: "string",
+        representative_name: "string",
+        representative_contact: "string"
+      },
+      {
+        id: Date.now()+1,
         first_name: "string",
         last_name: "string",
         grade: "First",
@@ -28,8 +44,8 @@ const Home = props => {
     ) 
 
 
-
-    function generateTableHead(data){
+    function generateTableHead(){
+        let data = Object.keys(students[0]); 
         let table = document.getElementsByName("table");
         let thead = table[0].createTHead();
         let row = thead.insertRow();
@@ -49,23 +65,25 @@ const Home = props => {
             let cell = row.insertCell();
             let text = document.createTextNode(element[key]);
             cell.appendChild(text);
-            cell.setAttribute('onClick', `{deleteChild(${element})}')`)
             }
+            let deleteButton = row.insertCell();
+            let deleteLink = document.createElement('button');
+            let deleteText = document.createTextNode('Delete')
+            deleteButton.appendChild(deleteLink);
+            deleteLink.appendChild(deleteText)
+            deleteLink.setAttribute('onClick', `${deleteChild(element.id)}`)
         }
     }
-
-    let data = Object.keys(students);
     
 
     const deleteChild = child => {
-    // make a delete request to delete this color
         axiosWithAuth()
-        .delete(`/api/admins/${child.id}`/students)
+        .delete(`/api/admins/${child}`/students)
         .then(res => {
             console.log(res)
         })
         .catch(err => console.log(err))
-        props.history.push("/protected/home")
+        history.push("/protected/home")
     };
 
 
@@ -79,9 +97,11 @@ const Home = props => {
             })
         })
         .catch(err => console.log(err));
-        
-        generateTableHead(data)
+
+           
+        generateTableHead()
         generateTable(students)
+
     }, [])
 
     function addNewChild(e){
