@@ -27,8 +27,7 @@ const Login = props => {
       .then(res => {
         localStorage.setItem("token", res.data.token);
         props.history.push("/protected/home");
-        console.log(loginInfo.credentials)
-      })
+        console.log(loginInfo.credentials)      })
       .catch(err => console.log(err));
   };
 

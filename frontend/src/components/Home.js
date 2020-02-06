@@ -9,7 +9,6 @@ function Home()  {
     const [students, setStudents] = useState(
       [
         {
-        id: Date.now(),
         first_name: "string",
         last_name: "string",
         grade: "First",
@@ -25,7 +24,6 @@ function Home()  {
         representative_contact: "string"
       },
       {
-        id: Date.now()+1,
         first_name: "string",
         last_name: "string",
         grade: "First",
@@ -44,6 +42,8 @@ function Home()  {
     ) 
 
 
+    // This function generates the table head using the key parts of the array.
+
     function generateTableHead(){
         let data = Object.keys(students[0]); 
         let table = document.getElementsByName("table");
@@ -57,7 +57,21 @@ function Home()  {
         }
     }
 
+
+    // This function generates a table based on data based on the data recieved from the server. 
+
     function generateTable(data){
+
+        const deleteChild = child => {
+            axiosWithAuth()
+            .delete(`/api/admins/${child}`/students)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => console.log(err))
+            history.push("/protected/home")
+        };
+
         let table = document.getElementsByName("table");
         for (let element of data) {
             let row = table[0].insertRow();
@@ -71,21 +85,12 @@ function Home()  {
             let deleteText = document.createTextNode('Delete')
             deleteButton.appendChild(deleteLink);
             deleteLink.appendChild(deleteText)
-            deleteLink.setAttribute('onClick', `${deleteChild(element.id)}`)
+            deleteLink.setAttribute('onClick', `{deleteChild(${element.id})}`)
         }
     }
-    
 
-    const deleteChild = child => {
-        axiosWithAuth()
-        .delete(`/api/admins/${child}`/students)
-        .then(res => {
-            console.log(res)
-        })
-        .catch(err => console.log(err))
-        history.push("/protected/home")
-    };
 
+    // As data is updated by student form, useEffect recalls the data from the server and then rerenders the page with the new state.
 
     useEffect(() => {
 
@@ -103,6 +108,8 @@ function Home()  {
         generateTable(students)
 
     }, [])
+
+    // This updates the local state before sending it over to handleSubmit and making a post request. The post request is non-functional due to a CORS issue with the backend. To resolve this issue in the future, the backend would need to work with the front end developer to resolve the issues on the backend. 
 
     function addNewChild(e){
         const newChild = {
