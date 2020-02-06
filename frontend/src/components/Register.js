@@ -3,61 +3,63 @@ import axios from "axios";
 
 const Register = props => {
   const initialState = {
-    credentials: {
-        username:"",
-        firstName: "",
-        lastName: "",
-        password: ""
+    credentials:{
+        first_name: "",
+        last_name: "",
+        email:"",
+        password: "",
+        type:"admin"
     }
   }
+
   const [regInfo, setRegInfo] = useState(initialState)
 
   const handleChange = e => {
     setRegInfo({
-            credentials: {
-              ...regInfo.credentials,
-              [e.target.name]: e.target.value   
-            }           
-    });
+              credentials: {
+                ...regInfo.credentials,
+                [e.target.name]: e.target.value  
+              }  
+            }  
+    );
   };
 
   const handleRegister = e => {
     e.preventDefault();
-    // make a POST requeset to the server
-    // the server will authenticate the user based on their credentials
-    // if they auth, the server will return a token
     axios
-      .post("http://localhost:5000/api/register", regInfo.credentials)
+      .post("https://intl-school-social-worker.herokuapp.com/api/auth/register", regInfo.credentials)
       .then(res => {
         console.log(res);
-        props.history.push("/protected/onboarding");
+        props.history.push(`/protected/home`);
+        localStorage.setItem("token", res.data.token);
+        console.log(regInfo.credentials)
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(regInfo.credentials));
   };
 
   return (
       <div className="register-container">
         <div className="form">
             <form onSubmit={handleRegister}>
-                <label for="username">Username:</label>
+                <label for="email">Email:</label>
                 <input
                     type="text"
-                    name="username"
-                    value={regInfo.credentials.username}
+                    name="email"
+                    value={regInfo.credentials.email}
                     onChange={handleChange}
                 />
-                <label for="firstName">First Name:</label>
+                <label for="first_name">First Name:</label>
                 <input
                     type="text"
-                    name="firstName"
-                    value={regInfo.credentials.firstName}
+                    name="first_name"
+                    value={regInfo.credentials.first_name}
                     onChange={handleChange}
                 />
-                <label for="lastName">Last Name:</label>
+                <label for="last_name">Last Name:</label>
                 <input
                     type="text"
-                    name="lastName"
-                    value={regInfo.credentials.lastName}
+                    name="last_name"
+                    value={regInfo.credentials.last_name}
                     onChange={handleChange}
                 />
                 <label for="password">Password:</label>
