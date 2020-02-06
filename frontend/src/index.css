@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 62.5%;
 }
 
 code {
@@ -75,4 +80,137 @@ code {
 .ob h2 {
   font-size: 1rem;
   text-decoration: none;
+
+.single-child {
+  display: flex;
+  max-width: 100%;
+}
+
+.picture {
+  margin: 5% 0 0 0.5%;
+}
+
+
+.text {
+  margin: 4.5% 12% 0 3.25%;
+}
+
+h1 {
+  font-size: 2.6rem;
+  text-align: left;
+}
+
+h4 {
+  font-size: 1.2rem;
+  margin-top: -3.25%;
+  text-align: left;
+}
+
+h2 {
+  font-size: 2rem; 
+  text-align: left;
+}
+
+p {
+  font-size: 1rem;
+  text-align: left;
+}
+
+.child-card {
+  border: 2px solid red;
+  width: 31%;
+}
+
+.child-name {
+  display: flex;
+  margin-left: 3%;
+}
+
+.middle-content-card {
+  display: flex;
+  margin-left: 3%;
+  width: 100%;
+  /* border: 2px solid orange; */
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border: 2px solid blue;
+}
+
+.child-bio {
+  /* border: 2px solid gold; */
+  width: 45%;
+  margin-left: 2%;
+}
+
+.bottom-content-card {
+  display: flex;
+  /* border: 2px solid red; */
+  margin-left: 4%;
+  width: 100%;
+}
+
+.status {
+  margin-left: 28%;
+}
+
+
+/* NavBar CSS */
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+}
+.nav {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+  margin: 2% 0 2% 0;
+  border: 2px solid blue;
+}
+
+.home button {
+  color: gold;
+  border: 1px solid black;
+  border-radius: 3px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.sign-out button {
+  color: white;
+  background: gold;
+  border: 1px solid black;
+  border-radius: 3px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+
+/* Footer CSS */
+
+.bottom-container {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-container {
+  background: #f4f4f4;
+  width: 50%;
+  height: 100px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  font-weight: 450;
+}
+
+.footer p {
+  display: flex;
+  align-content: center;
+  border: 2px solid gold;
+
 }
