@@ -7,6 +7,7 @@ import SingleChild from "./Components/SingleChild";
 import ChildCard from './Components/ChildCard';
 import NavBar from "./Components/NavBar";
 import Footer from "./Components/Footer";
+import * as Yup from "yup";
 
 function App() {
   const [data, setData] = useState([]);

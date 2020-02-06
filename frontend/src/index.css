@@ -104,7 +104,6 @@ p {
   justify-content: space-evenly;
   width: 50%;
   margin: 2% 0 2% 0;
-  border: 2px solid blue;
 }
 
 .home button {
@@ -147,5 +146,4 @@ p {
 .footer p {
   display: flex;
   align-content: center;
-  border: 2px solid gold;
 }
