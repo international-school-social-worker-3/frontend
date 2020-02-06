@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import axios from "axios";
-import Login from './Components/Login';
+import PrivateRoute from './components/PrivateRoute';
+import Register from './components/Register';
+import Login from './components/Login';
+import Home from './components/Home';
 import SingleChild from "./Components/SingleChild";
 import ChildCard from './Components/ChildCard';
 import NavBar from "./Components/NavBar";
@@ -45,17 +49,29 @@ function App() {
   }, []);
   return (
     <div className="App">
-     <NavBar />
-     <Login />
-     <SingleChild />
-     {mapArray.map(e => (
-       <div>
-       <ChildCard 
-        card={e}/>
-        </div>
-     ))}
-     <Footer />
+    <Router>
+         <NavBar />
+         <Login />
+         <SingleChild />
+         {mapArray.map(e => (
+           <div>
+           <ChildCard 
+            card={e}/>
+            </div>
+         ))}
+         <Footer />
+
+           <Switch>
+              <Route path='/login' component={Login} />
+              <Route path='/register' component={Register}/>>
+              <PrivateRoute path='/protected/home' component={Home} />
+              <Route component={Login}/>
+            </Switch>
+    </Router>
+       
+       
     </div>
+
   );
 }
 
