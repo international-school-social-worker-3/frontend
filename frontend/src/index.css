@@ -91,3 +91,61 @@ p {
 .status {
   margin-left: 28%;
 }
+
+
+/* NavBar CSS */
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+}
+.nav {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+  margin: 2% 0 2% 0;
+  border: 2px solid blue;
+}
+
+.home button {
+  color: gold;
+  border: 1px solid black;
+  border-radius: 3px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.sign-out button {
+  color: white;
+  background: gold;
+  border: 1px solid black;
+  border-radius: 3px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+
+/* Footer CSS */
+
+.bottom-container {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-container {
+  background: #f4f4f4;
+  width: 50%;
+  height: 100px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  font-weight: 450;
+}
+
+.footer p {
+  display: flex;
+  align-content: center;
+  border: 2px solid gold;
+}

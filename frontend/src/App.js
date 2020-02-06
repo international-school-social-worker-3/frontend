@@ -5,6 +5,8 @@ import axios from "axios";
 import Login from './Components/Login';
 import SingleChild from "./Components/SingleChild";
 import ChildCard from './Components/ChildCard';
+import NavBar from "./Components/NavBar";
+import Footer from "./Components/Footer";
 
 function App() {
   const [data, setData] = useState([]);
@@ -43,6 +45,7 @@ function App() {
   }, []);
   return (
     <div className="App">
+     <NavBar />
      <Login />
      <SingleChild />
      {mapArray.map(e => (
@@ -51,6 +54,7 @@ function App() {
         card={e}/>
         </div>
      ))}
+     <Footer />
     </div>
   );
 }
