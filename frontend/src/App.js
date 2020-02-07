@@ -6,10 +6,10 @@ import PrivateRoute from './components/PrivateRoute';
 import Register from './components/Register';
 import Login from './components/Login';
 import Home from './components/Home';
-import SingleChild from "./components/SingleChild";
-import ChildCard from './components/ChildCard';
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
+import SingleChild from "./Components/SingleChild";
+import ChildCard from './Components/ChildCard';
+import NavBar from "./Components/NavBar";
+import Footer from "./Components/Footer";
 
 function App() {
   const [data, setData] = useState([]);
