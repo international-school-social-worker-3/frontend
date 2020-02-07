@@ -1,6 +1,14 @@
 import React from "react";
 
-function NavBar () {
+function NavBar() {
+    function changeBackground(e) {
+        e.target.style.background = 'lightblue';
+      }
+
+      function revertBackground(e) {
+        e.target.style.background = 'gold';
+      }
+
     return (
         <div className="nav-container">
             <section className="nav">
@@ -8,7 +16,8 @@ function NavBar () {
                     <button>Home</button>
                 </div>
                 <div className="sign-out">
-                    <button>Sign Out</button>
+                    <button onMouseOver={changeBackground} onMouseLeave={revertBackground}>Sign Out</button>
+                    
                 </div>
             </section>
         </div>

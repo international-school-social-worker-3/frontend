@@ -53,8 +53,8 @@ p {
 }
 
 .child-card {
-  border: 2px solid red;
   width: 31%;
+  border: 1px solid lightgray;
 }
 
 .child-name {
@@ -72,7 +72,6 @@ p {
 .profile-image {
   width: 200px;
   height: 200px;
-  border: 2px solid blue;
 }
 
 .child-bio {
