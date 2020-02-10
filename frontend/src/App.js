@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import './App.css';
 import axios from "axios";
-import Login from './Components/Login';
+import PrivateRoute from './components/PrivateRoute';
+import Register from './components/Register';
+import Login from './components/Login';
+import Home from './components/Home';
 import SingleChild from "./Components/SingleChild";
 import ChildCard from './Components/ChildCard';
 import NavBar from "./Components/NavBar";
@@ -30,33 +33,33 @@ function App() {
     date: "12/2020",
     status: "Visitor"
 }]
-  console.log(data);
-  useEffect(() => {
-    axios
-      .get(
-        "http://localhost:5000/api/login"
-      )
-      .then(response => {
-        console.log(response.data.results);
-        setData(response.data.results);
-      })
-      .catch(error => {
-        console.log("No data returned", error);
-      });
-  }, []);
+
   return (
     <div className="App">
-     <NavBar />
-     <Login />
-     <SingleChild />
-     {mapArray.map(e => (
-       <div>
-       <ChildCard 
-        card={e}/>
-        </div>
-     ))}
-     <Footer />
+
+    <Router>
+         <NavBar />
+         {/* <SingleChild />
+         {mapArray.map(e => (
+           <div>
+           <ChildCard 
+            card={e}/>
+            </div>
+         ))} */}
+          <Switch>
+             <Route path='/login' component={Login} />
+                <Route path='/register' component={Register}/>>
+                <PrivateRoute path='/protected/home' component={Home} />
+                <Route component={Login}/>
+            </Switch>
+
+         <Footer />
+         
+    </Router>
+       
+       
     </div>
+
   );
 }
 
