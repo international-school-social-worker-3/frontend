@@ -2,15 +2,15 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 
-function NavBar () {
 
-    const testAPI = e =>{
-    e.preventDefault();
-    axiosWithAuth()
-      .get('/auth/register')
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
-  }
+function NavBar() {
+    function changeBackground(e) {
+        e.target.style.background = 'lightblue';
+      }
+
+      function revertBackground(e) {
+        e.target.style.background = 'gold';
+      }
 
     return (
         <div className="nav-container">
@@ -22,7 +22,9 @@ function NavBar () {
                     <button><Link to='/protected/home'>Home</Link></button>
                 </div>
                 <div className="sign-out">
-                    <button><Link to='/register'>Register</Link></button>
+
+                    <button onMouseOver={changeBackground} onMouseLeave={revertBackground}>Sign Out</button>
+                    
                 </div>
                 <button onClick={testAPI}>Test</button>
             </section>
